@@ -1,0 +1,21 @@
+# Macro Begin: C:\Users\LinaThunder\AppData\Roaming\FreeCAD\mirrorUp.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
+import FreeCAD
+
+deg = -45
+servoArm = App.ActiveDocument.Fusion050
+servoLink = App.ActiveDocument.Cut028.Placement
+frame = App.ActiveDocument.Fusion089
+base = App.Vector(29.5,23.5,11.5)
+point = base.add(App.Vector(-7.3,0,0))
+if frame.Placement.Rotation.Angle != 0:
+	servoArm.Placement =App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,1,0),-deg), base).multiply(servoArm.Placement)
+	servoLink.Base = App.Vector(0,0,0)
+	frame.Placement = App.Placement()
+else:
+	rotate=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,1,0),deg), base)
+	servoLink.Base = rotate.multVec(point).sub(point)
+	servoArm.Placement = rotate.multiply(servoArm.Placement)
+	frame.Placement=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,1,0),deg), base.add(App.Vector(0,0,-10))).multiply(frame.Placement)
+
+
+# Macro End: C:\Users\LinaThunder\AppData\Roaming\FreeCAD\mirrorUp.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
