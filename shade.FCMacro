@@ -1,0 +1,57 @@
+# Macro Begin: C:\Users\LinaThunder\AppData\Roaming\FreeCAD\mirrorUp.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
+import FreeCAD
+
+deg = -45
+servoArm = App.ActiveDocument.Fusion050
+servoLink = App.ActiveDocument.Cut028.Placement
+frame = App.ActiveDocument.Fusion089
+fbase = App.Vector(29.5,23.5,11.5)
+point = fbase.add(App.Vector(-5.3,0,0))
+
+axis=App.Vector(0,1,0)
+shade = App.ActiveDocument.Fusion137
+shade2 = App.ActiveDocument.Fusion136
+shade3 = App.ActiveDocument.Cut106
+
+stage1deg=90
+stage1deg2=135
+stage1deg3=45
+
+stage2deg=125
+stage2deg2=150
+stage2deg3=20
+
+stage3deg3=-40
+
+stage1rot3=App.Rotation(axis,stage1deg3)
+stage2rot3=App.Rotation(axis,stage2deg3)
+stage3rot3=App.Rotation(axis,stage3deg3)
+base = App.Vector(32,0,-2.5)
+base2 = App.Vector(37,0,-2.5)
+base3 = App.Vector(37,0,26.5)
+if shade3.Placement.Rotation.Angle == stage3rot3.Angle:
+    shade3.Placement = App.Placement(App.Vector(0,0,0),stage1rot3, base3)
+    shade2.Placement = App.Placement(App.Vector(0,0,0),App.Rotation(App.Vector(0,1,0),stage1deg2), base2)
+    shade.Placement = App.Placement(App.Vector(0,0,0),App.Rotation(App.Vector(0,1,0),stage1deg), base)
+
+    rotate=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,1,0),deg), fbase)
+    servoLink.Base = rotate.multVec(point).sub(point)
+    servoArm.Placement = rotate.multiply(servoArm.Placement)
+    frame.Placement=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,1,0),deg), fbase.add(App.Vector(0,0,-10))).multiply(frame.Placement)
+
+elif shade3.Placement.Rotation.Angle == stage1rot3.Angle:
+    shade3.Placement = App.Placement(App.Vector(0,0,0),stage2rot3, base3)
+    shade2.Placement = App.Placement(App.Vector(0,0,0),App.Rotation(App.Vector(0,1,0),stage2deg2), base2)
+    shade.Placement = App.Placement(App.Vector(0,0,0),App.Rotation(App.Vector(0,1,0),stage2deg), base)
+
+    servoArm.Placement =App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,1,0),-deg), fbase).multiply(servoArm.Placement)
+    servoLink.Base = App.Vector(0,0,0)
+    frame.Placement = App.Placement()
+
+else:
+    shade.Placement = App.Placement()
+    shade2.Placement = App.Placement()
+    shade3.Placement = App.Placement(App.Vector(0,0,0),stage3rot3, base3)
+
+App.ActiveDocument.recompute()
+

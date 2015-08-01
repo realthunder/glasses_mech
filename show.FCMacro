@@ -1,0 +1,93 @@
+parts = [ 
+    'servo001',
+    'servoLink004',
+    'servoArm007',
+    'stepper001',
+    'stepperSlider002',
+    'shade005',
+    'eyeCameraCase007',
+    'frameII011',
+    'servoBig003',
+    'battery002',
+    'battery003',
+    'stepperB003',
+    'hookVServoCover001',
+    'slider010',
+    'hookVStepperBase002',
+    'footVUp008',
+    'eyeCamera',
+    'frameStopperA',
+    'plug002',
+    'footServoSlider003',
+    'chamber014',
+    'hookV007',
+    'chamberCap009',
+    'eyeCap005',
+    'lockStepper',
+    'lockStepperSlider',
+    'locker004',
+    'batterySpringPlate002',
+    'batteryTip004',
+    'cameraIII',
+    'cameraServo001',
+    'batteryCapLock006',
+    'capNew004',
+    'bigServoSpine002',
+    'fan003',
+    'projectorFocusWheel',
+    'projector002',
+    'cameraHouse',
+    'cameraHouseBottom',
+    'footVLower004',
+    'footVServoCase',
+    'footServo005',
+    'projectorArm003',
+    'projectorServoArm006',
+    'projectorAnchor004',
+    'projectorAnchor005',
+    'projectorServo001',
+    'projectorHouse005',
+    'modem003',
+    'modemConnectorCap001',
+    'bendRing003',
+    'bendSpineBase001',
+    'bendRingBase003',
+    'bendRingBaseCap001',
+    'buttonSmall002',
+    'buttonBase001',
+    'buttonCap004',
+    'buttonCap005',
+    'powerSwitch003',
+    'dialButton001',
+    'dialButton',
+    'dialCap004',
+    'batteryCapLower003',
+    'batteryCapUpper005',
+    'bottom003',
+    'top007',
+    'mid',
+    'batteryHouseExtraTop002',
+    'batteryHouseExtraTop003',
+    'footWallTop002',
+    'cameraServoSupport005',
+    'servoBigHolder007',
+    'outSide002',
+];    
+
+# camereaCap, top, fanWall, outWall, wall
+
+for p in parts:
+    if p in excludes: continue;
+    try:
+        name = App.ActiveDocument.getObjectsByLabel(p)[0].Name;
+        Gui.ActiveDocument.getObject(name).Visibility = show;
+    except:
+        print 'failed to get object ' + p;
+        break;
+
+
+
+    
+
+
+
