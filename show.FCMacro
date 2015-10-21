@@ -49,9 +49,12 @@ parts = [
     'projectorHouse005',
     'modem003',
     'modemConnectorCap001',
+    'bendConnector004',
+    'bendLower',
+    'bendUpper',
     'bendRing003',
-    'bendSpineBase001',
-    'bendRingBase003',
+    'bendSpineBase002',
+    'bendRingBase004',
     'bendRingBaseCap001',
     'buttonSmall002',
     'buttonBase001',
@@ -64,14 +67,30 @@ parts = [
     'batteryCapLower003',
     'batteryCapUpper005',
     'bottom003',
-    'top007',
-    'mid',
-    'batteryHouseExtraTop002',
-    'batteryHouseExtraTop003',
+    # 'mid',
+
+    # 'top007',
+    # 'batteryHouseExtraTop002',
+    # 'batteryHouseExtraTop003',
+    'outSide002',
+    #
+    # In case we have a dual extruder for disolvable support, 
+    # the above are combined as below,
+    'top008'
+
     'footWallTop002',
     'cameraServoSupport005',
-    'servoBigHolder007',
-    'outSide002',
+
+    # with cut-out
+    # 'servoBigHolder007',
+    # without cut-out
+    # 'servoBigHolder008,
+    
+
+    'cushion005',
+    'cushionBase001',
+    'plate001',
+    'earPhoneCap002',
 ];    
 
 # camereaCap, top, fanWall, outWall, wall
