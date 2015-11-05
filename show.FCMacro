@@ -5,8 +5,10 @@ parts = [
     'stepper001',
     'stepperSlider002',
     'shade005',
-    'eyeCameraCase007',
-    'frameII011',
+    # 'eyeCameraCase007',
+    'eyeCameraCase009',
+    'frameIIBottom',
+    'frameIITop',
     'servoBig003',
     'battery002',
     'battery003',
@@ -21,7 +23,8 @@ parts = [
     'footServoSlider003',
     'chamber014',
     'hookV007',
-    'chamberCap009',
+    'hookVCap001',
+    'chamberCap010',
     'eyeCap005',
     'lockStepper',
     'lockStepperSlider',
@@ -76,7 +79,7 @@ parts = [
     #
     # In case we have a dual extruder for disolvable support, 
     # the above are combined as below,
-    'top008'
+    'top008',
 
     'footWallTop002',
     'cameraServoSupport005',
@@ -84,7 +87,7 @@ parts = [
     # with cut-out
     # 'servoBigHolder007',
     # without cut-out
-    # 'servoBigHolder008,
+    'servoBigHolder008',
     
 
     'cushion005',
@@ -94,6 +97,9 @@ parts = [
 ];    
 
 # camereaCap, top, fanWall, outWall, wall
+
+if 'show' not in globals(): show = True;
+if 'excludes' not in globals(): excludes = [];
 
 for p in parts:
     if p in excludes: continue;
