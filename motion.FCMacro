@@ -1,0 +1,13 @@
+import FreeCAD
+
+foot = App.ActiveDocument.getObjectsByLabel('foot')[0];
+viewerFoot = App.ActiveDocument.getObjectsByLabel('viewerFoot')[0];
+viewer = App.ActiveDocument.getObjectsByLabel('viewer')[0];
+viewerBase = App.Vector(0,30,-1.75)
+if 'motion' not in globals(): motion = 1
+
+if motion == 1:
+    viewer.Placement = App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(1,0,0),-90), viewerBase)
+else:
+    viewer.Placement = App.Placement()
+
